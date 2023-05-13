@@ -1,54 +1,43 @@
 #include "lists.h"
 
 /**
-* list_len - finds no. of elements ina linked list.
-* @h: pointer to linked list.
-*
-* Return: number of elements in linked list.
-*/
-size_t list_len(listint_t *h)
-{
-	size_t  nodes = 0;
+ * is_palindrome - checks if a singly linked list is a palindrome
+ * @head: pointer to head of list
+ * Return: 0 if it is not a palindrome, 1 if it is a palindrome
+ */
+int is_palindrome(listint_t **head) {
+  if (*head == NULL) {
+    return 1;
+  }
 
-	if (h == NULL)
-		return (0);
-	while (h != NULL)
-	{
-		nodes++;
-		h = h->next;
-	}
-	return (nodes);
-}
+  // Get the middle of the linked list.
+  listint_t *mid = *head;
+  listint_t *prev = NULL;
+  while (mid->next != NULL) {
+    prev = mid;
+    mid = mid->next;
+  }
 
-/**
-* is_palindrome - checks if a singly linked list is a palindrome.
-* @head: double pointert to head of d-list.
-*
-* Return: 1 if palindrome, 0 otherwise.
-*/
-int is_palindrome(listint_t **head)
-{
-	int *nArr, i = 0, j = 0, len = 0;
-	listint_t *temp;
+  // Reverse the second half of the linked list.
+  listint_t *curr = mid;
+  listint_t *next = NULL;
+  while (curr != NULL) {
+    next = curr->next;
+    curr->next = prev;
+    prev = curr;
+    curr = next;
+  }
 
-	if (*head == NULL)
-		return (1);
-	temp = *head;
-	len = list_len(temp);
-	nArr = (int *)malloc(sizeof(int) * len);
-	if (nArr == NULL)
-		return (2);
-	temp = *head;
-	while (temp != NULL)
-	{
-		nArr[j] = temp->n;
-		j++;
-		temp = temp->next;
-	}
-	for (i = 0, j = len - 1; i < j; i++, j--)
-	{
-		if (nArr[i] != nArr[j])
-			return (0);
-	}
-	return (1);
+  // Compare the first half of the linked list with the reversed second half.
+  listint_t *first = *head;
+  while (first != prev) {
+    if (first->n != prev->n) {
+      return 0;
+    }
+    first = first->next;
+    prev = prev->next;
+  }
+
+  // The linked list is a palindrome.
+  return 1;
 }
