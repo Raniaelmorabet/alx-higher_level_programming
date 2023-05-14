@@ -1,43 +1,35 @@
+#include <stddef.h>
+#include <stdio.h>
 #include "lists.h"
 
 /**
- * is_palindrome - checks if a singly linked list is a palindrome
- * @head: pointer to head of list
- * Return: 0 if it is not a palindrome, 1 if it is a palindrome
+ * is_palindrome - check if a linked list is a palindrome
+ *
+ * @head: first node
+ *
+ * Return: 1 if success
+ *         0 if failed
  */
-int is_palindrome(listint_t **head) {
-  if (*head == NULL) {
-    return 1;
-  }
+int is_palindrome(listint_t **head)
+{
+	listint_t *tmp = *head;
+	int values[2048], i = 0, cLoop, limit;
 
-  // Get the middle of the linked list.
-  listint_t *mid = *head;
-  listint_t *prev = NULL;
-  while (mid->next != NULL) {
-    prev = mid;
-    mid = mid->next;
-  }
+	if (head == NULL || *head == NULL)
+		return (1);
 
-  // Reverse the second half of the linked list.
-  listint_t *curr = mid;
-  listint_t *next = NULL;
-  while (curr != NULL) {
-    next = curr->next;
-    curr->next = prev;
-    prev = curr;
-    curr = next;
-  }
+	while (tmp != NULL)
+	{
+		values[i] = tmp->n;
+		i++;
+		tmp = tmp->next;
+	}
 
-  // Compare the first half of the linked list with the reversed second half.
-  listint_t *first = *head;
-  while (first != prev) {
-    if (first->n != prev->n) {
-      return 0;
-    }
-    first = first->next;
-    prev = prev->next;
-  }
+	limit = (i % 2 == 0) ? i / 2 : (i + 1) / 2;
 
-  // The linked list is a palindrome.
-  return 1;
+	for (cLoop = 0; cLoop < limit; cLoop++)
+		if (values[cLoop] != values[i - 1 - cLoop])
+			return (0);
+
+	return (1);
 }
