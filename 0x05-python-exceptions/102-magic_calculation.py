@@ -1,8 +1,3 @@
-#!/usr/bin/python3
-# 102-magic_calculation.py
-# Brennan D Baraban <375@holbertonschool.com>
-
-
 def magic_calculation(a, b):
     result = 0
     for i in range(1, 3):
@@ -14,4 +9,4 @@ def magic_calculation(a, b):
         except:
             result = b + a
             break
-    return (result)
+    return result
