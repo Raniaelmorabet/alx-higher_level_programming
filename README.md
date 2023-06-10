@@ -1,7 +1,7 @@
-![img](https://static.wixstatic.com/media/b6d57d_fe33d932e1d044c0aca0efac1aedd7ed~mv2.png/v1/fill/w_560,h_154,al_c,q_85,usm_1.20_1.00_0.01,enc_auto/ALX%20blank-LOGO.png)
-
 ![img](https://thumbs.dreamstime.com/b/python-programming-colorful-plexus-design-python-language-programming-banner-colorful-plexus-design-software-technology-166200238.jpg)
-
+----------------------------------------------------------
+![img](https://static.wixstatic.com/media/b6d57d_fe33d932e1d044c0aca0efac1aedd7ed~mv2.png/v1/fill/w_560,h_154,al_c,q_85,usm_1.20_1.00_0.01,enc_auto/ALX%20blank-LOGO.png)
+--------------------------------------------------------
 # Zen (Python) 
 
 >Not sure if C has taught me to think like a programmer or python is just really easy.
