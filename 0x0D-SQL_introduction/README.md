@@ -11,9 +11,12 @@
 
 - is a collection of programs which enables its users to access database , manipulate data , & help in representation of data .
 - it also helps control access to the database by various users .
-  ![Untitled.png](..%2F..%2F..%2FDownloads%2FUntitled.png)
+
+![img_7.png](img_7.png)
+![img_6.png](img_6.png)
 ## ***what are the types of DBMS :***
-![lllm.png](..%2F..%2F..%2FDownloads%2Flllm.png)
+![img_5.png](img_5.png)
+
 ***HIERARCHICAL :***
 
 In a hierarchical database management system, data is organized in a tree-like structure with one root and multiple branches, with each branch having one parent and multiple children. This type of DBMS is typically used in large organizations with complex data relationships.
@@ -31,15 +34,14 @@ In a relational database management system, data is organized into tables, with 
 An object-oriented database management system (OODBMS) uses object-oriented programming concepts, like inheritance, encapsulation, and polymorphism, to store and manipulate data. It is used in applications that require complex data types, such as engineering simulations and computer-aided design. OODBMS are highly specialized and are not as commonly used as other types of DBMS.
 
 # ***what is SQL ?***
-![hhh.png](..%2F..%2F..%2FDownloads%2Fhhh.png)
-
+![img_4.png](img_4.png)
 Structured Query Language (SQL)
 
 - pronounced as Sequel OR SQL is actually the standard language for dealing with Relational Databases .
 - it can be effectively used to insert , search , update , delete database records
 - it helps in optimizing and maintenance of database and much more .
 
-![uuu.png](..%2F..%2F..%2FDownloads%2Fuuu.png)
+![img_3.png](img_3.png)
 ### **SQL Select syntax**
 
 ```sql
@@ -64,7 +66,7 @@ FROM Customers;
 
 Here, the SQL command selects the first_name and last_name of all customers in the `Customers` table.
 
-![hhhhhh.png](..%2F..%2F..%2FDownloads%2Fhhhhhh.png)
+![img_1.png](img_1.png)
 ### **SQL SELECT ALL:**
 
 To select all columns from a database table, we use the `*` character. For example,
