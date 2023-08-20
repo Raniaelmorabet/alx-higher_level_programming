@@ -1,24 +1,15 @@
 #!/usr/bin/python3
+"""Defines a class State"""
 
-"""
-Module to define the State class
-"""
 
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String, Integer
 
 Base = declarative_base()
 
 
 class State(Base):
-    """
-        State class inherits the Base class
-        Attributes:
-            id (int)
-            name (string)
-    """
+    """ Class that defines properties of State"""
     __tablename__ = 'states'
-
-    id = Column(Integer, primary_key=True, autoincrement=True,
-                nullable=False, unique=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
