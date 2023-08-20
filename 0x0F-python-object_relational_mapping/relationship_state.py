@@ -1,28 +1,18 @@
 #!/usr/bin/python3
-
 """
-Module to define the State class
+contains the class definition of a State and an instance Base
 """
 
-
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import relationship
-
 
 Base = declarative_base()
 
 
 class State(Base):
-    """
-        State class inherits the Base class
-        Attributes:
-            id (int)
-            name (string)
-    """
+    """Representation of a state"""
     __tablename__ = 'states'
-
-    id = Column(Integer, primary_key=True, autoincrement=True,
-                nullable=False, unique=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
-    cities = relationship("City", back_populates="state")
+    cities = relationship("City", backref="state")
