@@ -1,24 +1,20 @@
 #!/usr/bin/node
-// Prints the number of movies where "Wedge Antilles" is present
 
 const request = require('request');
-const url = process.argv[2];
 
-request(url, function (err, res, body) {
-  if (err) {
-    console.log(err);
-  } else if (res.statusCode === 200) {
-    let films = JSON.parse(body).results;
-    let count = 0;
-    for (let i = 0; i < films.length; i++) {
-      for (let j = 0; j < films[i].characters.length; j++) {
-        if (films[i].characters[j].includes('/18/')) {
-          count++;
-        }
-      }
-    }
-    console.log(count);
-  } else {
-    console.log('Invalid');
+request(process.argv[2], function (error, response, body) {
+  if (error) {
+    console.error(error);
   }
+  /* const nb = JSON.parse(body).results.reduce((acc, elem) => {
+    acc += elem.characters.reduce((acc, character) => {
+      return (character === 'https://swapi.co/api/people/18/' ? acc + 1 : acc);
+    }, 0);
+    return (acc);
+  }, 0);
+  */
+  const nb = JSON.parse(body).results.filter((elem) => {
+    return elem.characters.filter((url) => { return url.includes('18'); }).length;
+  }).length;
+  console.log(nb);
 });

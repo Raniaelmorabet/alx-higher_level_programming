@@ -1,24 +1,22 @@
 #!/usr/bin/node
-// Computes the number of tasks completed by user id from
-// jsonplaceholder.typicode.com API
 
 const request = require('request');
-const url = process.argv[2];
 
-request(url, function (err, res, body) {
-  if (err) {
-    console.log(err);
+request(process.argv[2], function (error, response, body) {
+  if (error) {
+    console.error(error);
   }
-  let tasks = JSON.parse(body);
-  let obj = {};
-  for (let task of tasks) {
-    if (task.completed === true) {
-      if (obj[task.userId] === undefined) {
-        obj[task.userId] = 1;
-      } else {
-        obj[task.userId]++;
+  const dict = JSON.parse(body).reduce((acc, elem) => {
+    if (!acc[elem.userId]) {
+      if (elem.completed) {
+        acc[elem.userId] = 1;
+      }
+    } else {
+      if (elem.completed) {
+        acc[elem.userId] += 1;
       }
     }
-  }
-  console.log(obj);
+    return acc;
+  }, {});
+  console.log(dict);
 });
